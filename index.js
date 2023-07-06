@@ -17,6 +17,13 @@ const friends = [
     name: "Joshaua",
   },
 ];
+app.use((req, res, next) => {
+  const start = Date.now();
+  next();
+  // Last chance to create any actions, this is aftewr the middleware has gotten responses from the endpoint
+  const delta = Date.now() - start;
+  console.log(`${req.method} ${req.url} ${delta}ms`);
+});
 app.get("/", (req, res) => {
   res.send();
 });
