@@ -17,6 +17,8 @@ const friends = [
     name: "Joshaua",
   },
 ];
+
+// First Middleware
 app.use((req, res, next) => {
   const start = Date.now();
   next();
